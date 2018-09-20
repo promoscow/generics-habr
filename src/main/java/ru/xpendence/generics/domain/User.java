@@ -9,7 +9,7 @@ import java.io.Serializable;
  * Author: Vyacheslav Chernyshov
  * Date: 19.09.2018
  * Time: 10:49
- * e-mail: vyacheslav.chernyshov@stoloto.ru
+ * e-mail: 2262288@gmail.com
  */
 @Entity
 public class User implements Serializable {

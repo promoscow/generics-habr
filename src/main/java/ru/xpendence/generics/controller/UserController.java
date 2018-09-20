@@ -13,7 +13,7 @@ import java.util.List;
  * Author: Vyacheslav Chernyshov
  * Date: 19.09.2018
  * Time: 10:53
- * e-mail: vyacheslav.chernyshov@stoloto.ru
+ * e-mail: 2262288@gmail.com
  */
 @RestController
 public class UserController {
