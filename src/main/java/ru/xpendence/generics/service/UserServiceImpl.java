@@ -37,6 +37,11 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
+    public Optional<User> update(User user) {
+        return Optional.of(userRepository.save(user));
+    }
+
+    @Override
     public Optional<User> get(Long id) {
         return userRepository.findById(id);
     }
