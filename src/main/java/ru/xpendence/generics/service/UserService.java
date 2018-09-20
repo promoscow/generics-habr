@@ -17,6 +17,8 @@ public interface UserService {
 
     List<User> saveAll(List<User> users);
 
+    Optional<User> update(User user);
+
     Optional<User> get(Long id);
 
     List<User> getAll();
