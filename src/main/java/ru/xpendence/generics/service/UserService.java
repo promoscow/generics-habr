@@ -8,7 +8,7 @@ import java.util.Optional;
 /**
  * Author: Vyacheslav Chernyshov
  * Date: 19.09.2018
- * Time: 10:53
+ * Time: 09:53
  * e-mail: 2262288@gmail.com
  */
 public interface UserService {
@@ -27,9 +27,7 @@ public interface UserService {
 
     Boolean deleteById(Long id);
 
-    Boolean delete(User user);
-
-    Boolean deleteAll(List<User> users);
+    Boolean deleteAll(List<Long> ids);
 
     Boolean deleteAll();
 }

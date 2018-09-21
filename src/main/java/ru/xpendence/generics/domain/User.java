@@ -8,7 +8,7 @@ import java.io.Serializable;
 /**
  * Author: Vyacheslav Chernyshov
  * Date: 19.09.2018
- * Time: 10:49
+ * Time: 09:49
  * e-mail: 2262288@gmail.com
  */
 @Entity

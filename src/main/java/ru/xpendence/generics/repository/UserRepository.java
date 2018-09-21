@@ -7,7 +7,7 @@ import ru.xpendence.generics.domain.User;
 /**
  * Author: Vyacheslav Chernyshov
  * Date: 19.09.2018
- * Time: 10:52
+ * Time: 09:52
  * e-mail: 2262288@gmail.com
  */
 @Repository
