@@ -5,7 +5,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import ru.xpendence.generics.base.ErrorType;
 import ru.xpendence.generics.domain.User;
-import ru.xpendence.generics.exception.UserException;
+import ru.xpendence.generics.exception.SampleException;
 import ru.xpendence.generics.repository.UserRepository;
 
 import java.util.List;
@@ -55,7 +55,7 @@ public class UserServiceImpl implements UserService {
     @Override
     public Boolean deleteById(Long id) {
         User user = get(id)
-                .orElseThrow(() -> new UserException(String.format(ErrorType.USER_NOT_FOUND.getDescription(), id)));
+                .orElseThrow(() -> new SampleException(String.format(ErrorType.ENTITY_NOT_FOUND.getDescription(), id)));
         userRepository.delete(user);
         return !userRepository.findById(user.getId()).isPresent();
     }

@@ -7,9 +7,9 @@ package ru.xpendence.generics.base;
  * e-mail: 2262288@gmail.com
  */
 public enum ErrorType {
-    USER_NOT_FOUND("User not found by id: %s"),
-    USER_NOT_SAVED("User not saved: %s"),
-    USER_NOT_UPDATED("User not updated: %s");
+    ENTITY_NOT_FOUND("Entity not found by id: %s"),
+    ENTITY_NOT_SAVED("Entity not saved: %s"),
+    ENTITY_NOT_UPDATED("Entity not updated: %s");
 
     private String description;
 

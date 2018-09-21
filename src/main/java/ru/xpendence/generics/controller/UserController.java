@@ -6,7 +6,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import ru.xpendence.generics.base.ErrorType;
 import ru.xpendence.generics.domain.User;
-import ru.xpendence.generics.exception.UserException;
+import ru.xpendence.generics.exception.SampleException;
 import ru.xpendence.generics.service.UserService;
 
 import java.util.List;
@@ -31,8 +31,8 @@ public class UserController {
     @PostMapping
     public ResponseEntity<User> save(@RequestBody User user) {
         return service.save(user).map(u -> new ResponseEntity<>(u, HttpStatus.OK))
-                .orElseThrow(() -> new UserException(
-                        String.format(ErrorType.USER_NOT_SAVED.getDescription(), user.toString())
+                .orElseThrow(() -> new SampleException(
+                        String.format(ErrorType.ENTITY_NOT_SAVED.getDescription(), user.toString())
                 ));
     }
 
@@ -44,16 +44,16 @@ public class UserController {
     @PutMapping
     public ResponseEntity<User> update(@RequestBody User user) {
         return service.update(user).map(u -> new ResponseEntity<>(u, HttpStatus.OK))
-                .orElseThrow(() -> new UserException(
-                        String.format(ErrorType.USER_NOT_UPDATED.getDescription(), user)
+                .orElseThrow(() -> new SampleException(
+                        String.format(ErrorType.ENTITY_NOT_UPDATED.getDescription(), user)
                 ));
     }
 
     @GetMapping
     public ResponseEntity<User> get(@RequestParam Long id) {
         return service.get(id).map(u -> new ResponseEntity<>(u, HttpStatus.OK))
-                .orElseThrow(() -> new UserException(
-                        String.format(ErrorType.USER_NOT_FOUND.getDescription(), id)
+                .orElseThrow(() -> new SampleException(
+                        String.format(ErrorType.ENTITY_NOT_FOUND.getDescription(), id)
                 ));
     }
 
