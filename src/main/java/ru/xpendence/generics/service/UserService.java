@@ -23,11 +23,7 @@ public interface UserService {
 
     List<User> getAll();
 
-    List<User> getAllById(List<Long> ids);
-
     Boolean deleteById(Long id);
-
-    Boolean deleteAll(List<Long> ids);
 
     Boolean deleteAll();
 }

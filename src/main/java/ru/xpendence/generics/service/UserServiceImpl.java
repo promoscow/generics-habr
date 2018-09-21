@@ -10,7 +10,6 @@ import ru.xpendence.generics.repository.UserRepository;
 
 import java.util.List;
 import java.util.Optional;
-import java.util.stream.Collectors;
 
 /**
  * Author: Vyacheslav Chernyshov
@@ -54,24 +53,11 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
-    public List<User> getAllById(List<Long> ids) {
-        return Lists.newArrayList(userRepository.findAllById(ids));
-    }
-
-    @Override
     public Boolean deleteById(Long id) {
         User user = get(id)
                 .orElseThrow(() -> new UserException(String.format(ErrorType.USER_NOT_FOUND.getDescription(), id)));
         userRepository.delete(user);
         return !userRepository.findById(user.getId()).isPresent();
-    }
-
-    @Override
-    public Boolean deleteAll(List<Long> ids) {
-        List<User> users = getAllById(ids);
-        userRepository.deleteAll(users);
-        return Lists.newArrayList(userRepository.findAllById(users.stream()
-                .map(User::getId).collect(Collectors.toList()))).isEmpty();
     }
 
     @Override

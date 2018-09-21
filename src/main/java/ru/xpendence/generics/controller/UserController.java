@@ -44,13 +44,17 @@ public class UserController {
     @PutMapping
     public ResponseEntity<User> update(@RequestBody User user) {
         return service.update(user).map(u -> new ResponseEntity<>(u, HttpStatus.OK))
-                .orElse(new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR));
+                .orElseThrow(() -> new UserException(
+                        String.format(ErrorType.USER_NOT_UPDATED.getDescription(), user)
+                ));
     }
 
     @GetMapping
     public ResponseEntity<User> get(@RequestParam Long id) {
         return service.get(id).map(u -> new ResponseEntity<>(u, HttpStatus.OK))
-                .orElse(new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR));
+                .orElseThrow(() -> new UserException(
+                        String.format(ErrorType.USER_NOT_FOUND.getDescription(), id)
+                ));
     }
 
     @GetMapping("/all")
@@ -58,13 +62,13 @@ public class UserController {
         return new ResponseEntity<>(service.getAll(), HttpStatus.OK);
     }
 
-    @GetMapping("/all/ids")
-    public ResponseEntity<List<User>> getAllById(@RequestBody List<Long> ids) {
-        return new ResponseEntity<>(service.getAllById(ids), HttpStatus.OK);
-    }
-
     @DeleteMapping
     public Boolean delete(@RequestParam Long id) {
-        return service.delete(id);
+        return service.deleteById(id);
+    }
+
+    @DeleteMapping("/all")
+    public Boolean deleteAll() {
+        return service.deleteAll();
     }
 }

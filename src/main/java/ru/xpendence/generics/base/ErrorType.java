@@ -8,7 +8,8 @@ package ru.xpendence.generics.base;
  */
 public enum ErrorType {
     USER_NOT_FOUND("User not found by id: %s"),
-    USER_NOT_SAVED("User not saved: %s");
+    USER_NOT_SAVED("User not saved: %s"),
+    USER_NOT_UPDATED("User not updated: %s");
 
     private String description;
 
