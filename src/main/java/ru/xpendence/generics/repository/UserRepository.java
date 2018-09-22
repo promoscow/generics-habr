@@ -10,5 +10,5 @@ import ru.xpendence.generics.domain.User;
  * e-mail: 2262288@gmail.com
  */
 @Repository
-public interface UserRepository extends AbstractRepository<User> {
+public interface UserRepository extends CommonRepository<User> {
 }

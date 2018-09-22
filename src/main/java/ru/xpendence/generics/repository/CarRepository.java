@@ -10,5 +10,5 @@ import ru.xpendence.generics.domain.Car;
  * e-mail: 2262288@gmail.com
  */
 @Repository
-public interface CarRepository extends AbstractRepository<Car> {
+public interface CarRepository extends CommonRepository<Car> {
 }

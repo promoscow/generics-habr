@@ -15,7 +15,7 @@ import ru.xpendence.generics.service.UserService;
  */
 @Controller
 @RequestMapping("/user")
-public class UserController extends AbstractControllerImpl<User, UserRepository, UserService> {
+public class UserController extends AbstractController<User, UserRepository, UserService> {
 
     private final UserService service;
 

@@ -11,5 +11,5 @@ import ru.xpendence.generics.domain.AbstractEntity;
  * e-mail: 2262288@gmail.com
  */
 @NoRepositoryBean
-public interface AbstractRepository<E extends AbstractEntity> extends CrudRepository<E, Long> {
+public interface CommonRepository<E extends AbstractEntity> extends CrudRepository<E, Long> {
 }

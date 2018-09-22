@@ -15,7 +15,7 @@ import ru.xpendence.generics.service.CarService;
  */
 @Controller
 @RequestMapping("/car")
-public class CarController extends AbstractControllerImpl<Car, CarRepository, CarService> {
+public class CarController extends AbstractController<Car, CarRepository, CarService> {
 
     private final CarService service;
 

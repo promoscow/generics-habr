@@ -12,7 +12,7 @@ import ru.xpendence.generics.repository.UserRepository;
  * e-mail: 2262288@gmail.com
  */
 @Service
-public class UserService extends AbstractServiceImpl<User, UserRepository> {
+public class UserService extends AbstractService<User, UserRepository> {
 
     private final UserRepository repository;
 
