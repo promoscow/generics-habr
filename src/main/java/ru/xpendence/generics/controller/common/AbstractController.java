@@ -1,4 +1,4 @@
-package ru.xpendence.generics.controller;
+package ru.xpendence.generics.controller.common;
 
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -7,7 +7,7 @@ import ru.xpendence.generics.base.ErrorType;
 import ru.xpendence.generics.domain.AbstractEntity;
 import ru.xpendence.generics.exception.SampleException;
 import ru.xpendence.generics.repository.CommonRepository;
-import ru.xpendence.generics.service.CommonService;
+import ru.xpendence.generics.service.common.CommonService;
 
 import java.util.List;
 

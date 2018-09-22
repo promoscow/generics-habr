@@ -1,4 +1,4 @@
-package ru.xpendence.generics.service;
+package ru.xpendence.generics.service.common;
 
 import ru.xpendence.generics.domain.AbstractEntity;
 import ru.xpendence.generics.repository.CommonRepository;

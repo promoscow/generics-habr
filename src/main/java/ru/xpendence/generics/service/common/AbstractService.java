@@ -1,4 +1,4 @@
-package ru.xpendence.generics.service;
+package ru.xpendence.generics.service.common;
 
 import com.google.common.collect.Lists;
 import ru.xpendence.generics.base.ErrorType;

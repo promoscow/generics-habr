@@ -4,6 +4,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import ru.xpendence.generics.domain.Car;
 import ru.xpendence.generics.repository.CarRepository;
+import ru.xpendence.generics.service.common.AbstractService;
 
 /**
  * Author: Vyacheslav Chernyshov

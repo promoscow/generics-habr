@@ -3,6 +3,7 @@ package ru.xpendence.generics.controller;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
+import ru.xpendence.generics.controller.common.AbstractController;
 import ru.xpendence.generics.domain.User;
 import ru.xpendence.generics.repository.UserRepository;
 import ru.xpendence.generics.service.UserService;

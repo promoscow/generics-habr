@@ -1,10 +1,10 @@
-package ru.xpendence.generics.controller;
+package ru.xpendence.generics.controller.common;
 
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import ru.xpendence.generics.domain.AbstractEntity;
 import ru.xpendence.generics.repository.CommonRepository;
-import ru.xpendence.generics.service.CommonService;
+import ru.xpendence.generics.service.common.CommonService;
 
 import java.util.List;
 
