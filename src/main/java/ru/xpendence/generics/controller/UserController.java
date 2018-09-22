@@ -1,8 +1,8 @@
 package ru.xpendence.generics.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
 import ru.xpendence.generics.controller.common.AbstractController;
 import ru.xpendence.generics.domain.User;
 import ru.xpendence.generics.repository.UserRepository;
@@ -14,7 +14,7 @@ import ru.xpendence.generics.service.UserService;
  * Time: 11:22
  * e-mail: 2262288@gmail.com
  */
-@Controller
+@RestController
 @RequestMapping("/user")
 public class UserController extends AbstractController<User, UserRepository, UserService> {
 

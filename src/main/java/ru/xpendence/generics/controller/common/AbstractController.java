@@ -1,8 +1,8 @@
 package ru.xpendence.generics.controller.common;
 
-import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.*;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestParam;
 import ru.xpendence.generics.base.ErrorType;
 import ru.xpendence.generics.domain.AbstractEntity;
 import ru.xpendence.generics.exception.SampleException;
@@ -22,46 +22,46 @@ public abstract class AbstractController<
         R extends CommonRepository<E>,
         S extends CommonService<E, R>> implements CommonController<E, R, S> {
 
-    @PostMapping
+    @Override
     public ResponseEntity<E> save(@RequestBody E entity) {
-        return getService().save(entity).map(u -> new ResponseEntity<>(u, HttpStatus.OK))
+        return getService().save(entity).map(ResponseEntity::ok)
                 .orElseThrow(() -> new SampleException(
                         String.format(ErrorType.ENTITY_NOT_SAVED.getDescription(), entity.toString())
                 ));
     }
 
-    @PostMapping("/all")
+    @Override
     public ResponseEntity<List<E>> saveAll(@RequestBody List<E> entities) {
-        return new ResponseEntity<>(getService().saveAll(entities), HttpStatus.OK);
+        return ResponseEntity.ok(getService().saveAll(entities));
     }
 
-    @PutMapping
+    @Override
     public ResponseEntity<E> update(@RequestBody E entity) {
-        return getService().update(entity).map(u -> new ResponseEntity<>(u, HttpStatus.OK))
+        return getService().update(entity).map(ResponseEntity::ok)
                 .orElseThrow(() -> new SampleException(
                         String.format(ErrorType.ENTITY_NOT_UPDATED.getDescription(), entity)
                 ));
     }
 
-    @GetMapping
+    @Override
     public ResponseEntity<E> get(@RequestParam Long id) {
-        return getService().get(id).map(u -> new ResponseEntity<>(u, HttpStatus.OK))
+        return getService().get(id).map(ResponseEntity::ok)
                 .orElseThrow(() -> new SampleException(
                         String.format(ErrorType.ENTITY_NOT_FOUND.getDescription(), id)
                 ));
     }
 
-    @GetMapping("/all")
+    @Override
     public ResponseEntity<List<E>> getAll() {
-        return new ResponseEntity<>(getService().getAll(), HttpStatus.OK);
+        return ResponseEntity.ok(getService().getAll());
     }
 
-    @DeleteMapping
+    @Override
     public Boolean delete(@RequestParam Long id) {
         return getService().deleteById(id);
     }
 
-    @DeleteMapping("/all")
+    @Override
     public Boolean deleteAll() {
         return getService().deleteAll();
     }
