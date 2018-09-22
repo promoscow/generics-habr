@@ -1,9 +1,7 @@
 package ru.xpendence.generics.domain;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
-import java.io.Serializable;
 import java.util.Objects;
 
 /**
@@ -13,22 +11,12 @@ import java.util.Objects;
  * e-mail: 2262288@gmail.com
  */
 @Entity
-public class Car implements Serializable {
+public class Car extends AbstractEntity {
 
-    private Long id;
     private String brand;
     private String model;
 
-    @Id
-    @GeneratedValue
-    public Long getId() {
-        return id;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
-    }
-
+    @Column
     public String getBrand() {
         return brand;
     }
@@ -37,6 +25,7 @@ public class Car implements Serializable {
         this.brand = brand;
     }
 
+    @Column
     public String getModel() {
         return model;
     }
@@ -50,22 +39,20 @@ public class Car implements Serializable {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Car car = (Car) o;
-        return Objects.equals(id, car.id) &&
-                Objects.equals(brand, car.brand) &&
+        return Objects.equals(brand, car.brand) &&
                 Objects.equals(model, car.model);
     }
 
     @Override
     public int hashCode() {
 
-        return Objects.hash(id, brand, model);
+        return Objects.hash(brand, model);
     }
 
     @Override
     public String toString() {
         return "Car{" +
-                "id=" + id +
-                ", brand='" + brand + '\'' +
+                "brand='" + brand + '\'' +
                 ", model='" + model + '\'' +
                 '}';
     }

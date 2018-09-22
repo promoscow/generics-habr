@@ -1,29 +1,28 @@
 package ru.xpendence.generics.service;
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 import ru.xpendence.generics.domain.Car;
-
-import java.util.List;
-import java.util.Optional;
+import ru.xpendence.generics.repository.CarRepository;
 
 /**
  * Author: Vyacheslav Chernyshov
- * Date: 21.09.18
- * Time: 22:31
+ * Date: 22.09.18
+ * Time: 17:13
  * e-mail: 2262288@gmail.com
  */
-public interface CarService {
+@Service
+public class CarService extends AbstractServiceImpl<Car, CarRepository> {
 
-    Optional<Car> save(Car car);
+    private final CarRepository repository;
 
-    List<Car> saveAll(List<Car> cars);
+    @Autowired
+    public CarService(CarRepository repository) {
+        this.repository = repository;
+    }
 
-    Optional<Car> update(Car car);
-
-    Optional<Car> get(Long id);
-
-    List<Car> getAll();
-
-    Boolean deleteById(Long id);
-
-    Boolean deleteAll();
+    @Override
+    public CarRepository getRepository() {
+        return repository;
+    }
 }

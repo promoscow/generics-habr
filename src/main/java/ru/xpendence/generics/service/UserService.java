@@ -1,29 +1,28 @@
 package ru.xpendence.generics.service;
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 import ru.xpendence.generics.domain.User;
-
-import java.util.List;
-import java.util.Optional;
+import ru.xpendence.generics.repository.UserRepository;
 
 /**
  * Author: Vyacheslav Chernyshov
- * Date: 19.09.2018
- * Time: 09:53
+ * Date: 22.09.18
+ * Time: 10:23
  * e-mail: 2262288@gmail.com
  */
-public interface UserService {
+@Service
+public class UserService extends AbstractServiceImpl<User, UserRepository> {
 
-    Optional<User> save(User user);
+    private final UserRepository repository;
 
-    List<User> saveAll(List<User> users);
+    @Autowired
+    public UserService(UserRepository repository) {
+        this.repository = repository;
+    }
 
-    Optional<User> update(User user);
-
-    Optional<User> get(Long id);
-
-    List<User> getAll();
-
-    Boolean deleteById(Long id);
-
-    Boolean deleteAll();
+    @Override
+    public UserRepository getRepository() {
+        return repository;
+    }
 }

@@ -2,9 +2,6 @@ package ru.xpendence.generics.domain;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
-import java.io.Serializable;
 import java.util.Objects;
 
 /**
@@ -14,21 +11,10 @@ import java.util.Objects;
  * e-mail: 2262288@gmail.com
  */
 @Entity
-public class User implements Serializable {
+public class User extends AbstractEntity {
 
-    private Long id;
     private String name;
     private String phone;
-
-    @Id
-    @GeneratedValue
-    public Long getId() {
-        return id;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
-    }
 
     @Column(nullable = false)
     public String getName() {
@@ -53,22 +39,20 @@ public class User implements Serializable {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         User user = (User) o;
-        return Objects.equals(id, user.id) &&
-                Objects.equals(name, user.name) &&
+        return Objects.equals(name, user.name) &&
                 Objects.equals(phone, user.phone);
     }
 
     @Override
     public int hashCode() {
 
-        return Objects.hash(id, name, phone);
+        return Objects.hash(name, phone);
     }
 
     @Override
     public String toString() {
         return "User{" +
-                "id=" + id +
-                ", name='" + name + '\'' +
+                "name='" + name + '\'' +
                 ", phone='" + phone + '\'' +
                 '}';
     }

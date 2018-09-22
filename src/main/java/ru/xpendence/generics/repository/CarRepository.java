@@ -1,13 +1,14 @@
 package ru.xpendence.generics.repository;
 
-import org.springframework.data.repository.CrudRepository;
+import org.springframework.stereotype.Repository;
 import ru.xpendence.generics.domain.Car;
 
 /**
  * Author: Vyacheslav Chernyshov
- * Date: 21.09.18
- * Time: 22:30
+ * Date: 22.09.18
+ * Time: 17:12
  * e-mail: 2262288@gmail.com
  */
-public interface CarRepository extends CrudRepository<Car, Long> {
+@Repository
+public interface CarRepository extends AbstractRepository<Car> {
 }
