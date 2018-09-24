@@ -3,8 +3,6 @@ package ru.xpendence.generics.controller.common;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import ru.xpendence.generics.domain.AbstractEntity;
-import ru.xpendence.generics.repository.CommonRepository;
-import ru.xpendence.generics.service.common.CommonService;
 
 import java.util.List;
 
@@ -15,11 +13,7 @@ import java.util.List;
  * e-mail: 2262288@gmail.com
  */
 public interface CommonController<
-        E extends AbstractEntity,
-        R extends CommonRepository<E>,
-        S extends CommonService<E, R>> {
-
-    S getService();
+        E extends AbstractEntity> {
 
     @PostMapping
     ResponseEntity<E> save(@RequestBody E entity);

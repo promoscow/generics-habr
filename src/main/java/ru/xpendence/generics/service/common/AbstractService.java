@@ -1,6 +1,7 @@
 package ru.xpendence.generics.service.common;
 
 import com.google.common.collect.Lists;
+import org.springframework.beans.factory.annotation.Autowired;
 import ru.xpendence.generics.base.ErrorType;
 import ru.xpendence.generics.domain.AbstractEntity;
 import ru.xpendence.generics.exception.SampleException;
@@ -18,42 +19,49 @@ import java.util.Optional;
 public abstract class AbstractService<E extends AbstractEntity, R extends CommonRepository<E>>
         implements CommonService<E, R> {
 
+    protected final R repository;
+
+    @Autowired
+    public AbstractService(R repository) {
+        this.repository = repository;
+    }
+
     @Override
     public Optional<E> save(E entity) {
-        return Optional.of(getRepository().save(entity));
+        return Optional.of(repository.save(entity));
     }
 
     @Override
     public List<E> saveAll(List<E> entities) {
-        return Lists.newArrayList(getRepository().saveAll(entities));
+        return Lists.newArrayList(repository.saveAll(entities));
     }
 
     @Override
     public Optional<E> update(E entity) {
-        return Optional.of(getRepository().save(entity));
+        return Optional.of(repository.save(entity));
     }
 
     @Override
     public Optional<E> get(Long id) {
-        return getRepository().findById(id);
+        return repository.findById(id);
     }
 
     @Override
     public List<E> getAll() {
-        return Lists.newArrayList(getRepository().findAll());
+        return Lists.newArrayList(repository.findAll());
     }
 
     @Override
     public Boolean deleteById(Long id) {
         E entity = get(id)
                 .orElseThrow(() -> new SampleException(String.format(ErrorType.ENTITY_NOT_FOUND.getDescription(), id)));
-        getRepository().delete(entity);
-        return !getRepository().findById(entity.getId()).isPresent();
+        repository.delete(entity);
+        return !repository.findById(entity.getId()).isPresent();
     }
 
     @Override
     public Boolean deleteAll() {
-        getRepository().deleteAll();
-        return Lists.newArrayList(getRepository().findAll()).isEmpty();
+        repository.deleteAll();
+        return Lists.newArrayList(repository.findAll()).isEmpty();
     }
 }

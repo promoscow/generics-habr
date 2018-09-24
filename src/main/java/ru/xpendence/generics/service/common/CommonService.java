@@ -14,8 +14,6 @@ import java.util.Optional;
  */
 public interface CommonService<E extends AbstractEntity, R extends CommonRepository<E>> {
 
-    R getRepository();
-
     Optional<E> save(E entity);
 
     List<E> saveAll(List<E> entities);

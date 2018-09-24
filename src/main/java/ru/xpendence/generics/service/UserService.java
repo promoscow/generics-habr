@@ -1,6 +1,5 @@
 package ru.xpendence.generics.service;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import ru.xpendence.generics.domain.User;
 import ru.xpendence.generics.repository.UserRepository;
@@ -15,15 +14,7 @@ import ru.xpendence.generics.service.common.AbstractService;
 @Service
 public class UserService extends AbstractService<User, UserRepository> {
 
-    private final UserRepository repository;
-
-    @Autowired
     public UserService(UserRepository repository) {
-        this.repository = repository;
-    }
-
-    @Override
-    public UserRepository getRepository() {
-        return repository;
+        super(repository);
     }
 }

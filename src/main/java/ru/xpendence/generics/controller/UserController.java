@@ -1,6 +1,5 @@
 package ru.xpendence.generics.controller;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import ru.xpendence.generics.controller.common.AbstractController;
@@ -18,15 +17,7 @@ import ru.xpendence.generics.service.UserService;
 @RequestMapping("/user")
 public class UserController extends AbstractController<User, UserRepository, UserService> {
 
-    private final UserService service;
-
-    @Autowired
     public UserController(UserService service) {
-        this.service = service;
-    }
-
-    @Override
-    public UserService getService() {
-        return service;
+        super(service);
     }
 }

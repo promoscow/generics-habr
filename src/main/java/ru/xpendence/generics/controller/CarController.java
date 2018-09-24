@@ -1,6 +1,5 @@
 package ru.xpendence.generics.controller;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import ru.xpendence.generics.controller.common.AbstractController;
@@ -18,15 +17,7 @@ import ru.xpendence.generics.service.CarService;
 @RequestMapping("/car")
 public class CarController extends AbstractController<Car, CarRepository, CarService> {
 
-    private final CarService service;
-
-    @Autowired
     public CarController(CarService service) {
-        this.service = service;
-    }
-
-    @Override
-    public CarService getService() {
-        return service;
+        super(service);
     }
 }
