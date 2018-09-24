@@ -12,8 +12,7 @@ import java.util.List;
  * Time: 11:10
  * e-mail: 2262288@gmail.com
  */
-public interface CommonController<
-        E extends AbstractEntity> {
+public interface CommonController<E extends AbstractEntity> {
 
     @PostMapping
     ResponseEntity<E> save(@RequestBody E entity);

@@ -7,7 +7,6 @@ import org.springframework.web.bind.annotation.RequestParam;
 import ru.xpendence.generics.base.ErrorType;
 import ru.xpendence.generics.domain.AbstractEntity;
 import ru.xpendence.generics.exception.SampleException;
-import ru.xpendence.generics.repository.CommonRepository;
 import ru.xpendence.generics.service.common.CommonService;
 
 import java.util.List;
@@ -18,10 +17,8 @@ import java.util.List;
  * Time: 11:15
  * e-mail: 2262288@gmail.com
  */
-public abstract class AbstractController<
-        E extends AbstractEntity,
-        R extends CommonRepository<E>,
-        S extends CommonService<E, R>> implements CommonController<E> {
+public abstract class AbstractController<E extends AbstractEntity, S extends CommonService<E>>
+        implements CommonController<E> {
 
     private final S service;
 

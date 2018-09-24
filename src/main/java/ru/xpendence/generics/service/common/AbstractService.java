@@ -17,9 +17,9 @@ import java.util.Optional;
  * e-mail: 2262288@gmail.com
  */
 public abstract class AbstractService<E extends AbstractEntity, R extends CommonRepository<E>>
-        implements CommonService<E, R> {
+        implements CommonService<E> {
 
-    protected final R repository;
+    private final R repository;
 
     @Autowired
     public AbstractService(R repository) {

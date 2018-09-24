@@ -1,7 +1,6 @@
 package ru.xpendence.generics.service.common;
 
 import ru.xpendence.generics.domain.AbstractEntity;
-import ru.xpendence.generics.repository.CommonRepository;
 
 import java.util.List;
 import java.util.Optional;
@@ -12,7 +11,7 @@ import java.util.Optional;
  * Time: 10:01
  * e-mail: 2262288@gmail.com
  */
-public interface CommonService<E extends AbstractEntity, R extends CommonRepository<E>> {
+public interface CommonService<E extends AbstractEntity> {
 
     Optional<E> save(E entity);
 

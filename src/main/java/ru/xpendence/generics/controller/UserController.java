@@ -4,7 +4,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import ru.xpendence.generics.controller.common.AbstractController;
 import ru.xpendence.generics.domain.User;
-import ru.xpendence.generics.repository.UserRepository;
 import ru.xpendence.generics.service.UserService;
 
 /**
@@ -15,7 +14,7 @@ import ru.xpendence.generics.service.UserService;
  */
 @RestController
 @RequestMapping("/user")
-public class UserController extends AbstractController<User, UserRepository, UserService> {
+public class UserController extends AbstractController<User, UserService> {
 
     public UserController(UserService service) {
         super(service);
